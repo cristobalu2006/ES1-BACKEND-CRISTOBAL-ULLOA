@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | AutoClean</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">AutoClean</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/">Inicio</a>
+                <a class="nav-link active" href="">Servicios</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Catálogo de Servicios -->
+    <main class="container my-5">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Nuestros Servicios</h1>
+            <p class="text-muted">Lista de servicios disponibles recibida desde el backend</p>
+        </div>
+
+        <div class="row justify-content-center">
+            {% for item in servicios %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-header bg-primary text-white text-center py-3">
+                        <h5 class="card-title m-0 fw-bold text-capitalize">{{ item.nombre }}</h5>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-center">
+                        <span class="text-muted mb-1">Precio del servicio</span>
+                        <span class="fs-2 fw-bold text-success">${{ item.valor }}</span>
+                    </div>
+                    <div class="card-footer bg-white border-0 text-center pb-3">
+                        <button class="btn btn-outline-primary w-100">Solicitar</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-secondary">← Volver al Inicio</a>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <small>&copy; 2026 AutoClean - Todos los derechos reservados.</small>
+    </footer>
+
+</body>
+</html>
